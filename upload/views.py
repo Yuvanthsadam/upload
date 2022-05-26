@@ -36,3 +36,29 @@ class proListView(APIView):
                 "result": serializer.errors
             }
             return Response(resp3)
+        
+
+class proDetailView(APIView):
+
+    def get(self, request, pk):
+        try:
+            pro = profile.objects.get(pk=pk)
+        except profile.DoesNotExist:
+            return Response({'error': 'Not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        pro_serializer = ProfileSerializer(pro)
+        return Response(pro_serializer.data)
+
+    def put(self, request, pk):
+        pro = profile.objects.get(pk=pk)
+        pro_serializer = ProfileSerializer(pro, data=request.data)
+        if pro_serializer.is_valid():
+            pro_serializer.save()
+            return Response(pro_serializer.data)
+        else:
+            return Response(pro_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        pro = profile.objects.get(pk=pk)
+        pro.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
