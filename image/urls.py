@@ -9,6 +9,6 @@ from upload.views import proListView, proDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     # url(r'^', include('upload.urls')),
-    path('profile', proListView.as_view(), name='pro-list'),
+    path('profile/', proListView.as_view(), name='pro-list'),
     path('profile/<int:pk>', proDetailView.as_view(), name='pro-detail'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
