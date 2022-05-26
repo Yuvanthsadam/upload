@@ -13,7 +13,7 @@ class proListView(APIView):
         pro_serializer = ProfileSerializer(pro, many=True)
         resp1 = {
             "code": 1,
-            "message": "success",
+            "message": "GET list success",
             "result": pro_serializer.data
         }
 
@@ -29,11 +29,10 @@ class proListView(APIView):
         # }
         serializer = ProfileSerializer(data=request.data)
         if serializer.is_valid():
-
             serializer.save()
             resp2 = {
                 "code": 1,
-                "message": "success",
+                "message": "Post success",
                 "result": serializer.data
             }
             # print(serializer.data)
@@ -41,7 +40,7 @@ class proListView(APIView):
         else:
             resp3 = {
                 "code": 0,
-                "message": "Unsuccess",
+                "message": "Post Unsuccess",
                 "result": serializer.errors
             }
             return Response(resp3)
