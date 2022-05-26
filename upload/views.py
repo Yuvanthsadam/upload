@@ -20,14 +20,23 @@ class proListView(APIView):
         return Response(data=resp1, status=status.HTTP_200_OK)
 
     def post(self, request):
+        # request.data.update(
+        #     {"name": request.data["name"], "picture":  "https://upload-new.herokuapp.com/".join(request.data["picture"])})
+        print(request.data["picture"])
+        # myData = {
+        #     "name": request.data["name"],
+        #     "picture": "https://upload-new.herokuapp.com/"+request.data["picture"]
+        # }
         serializer = ProfileSerializer(data=request.data)
         if serializer.is_valid():
+
             serializer.save()
             resp2 = {
                 "code": 1,
                 "message": "success",
                 "result": serializer.data
             }
+            # print(serializer.data)
             return Response(resp2, status=status.HTTP_201_CREATED)
         else:
             resp3 = {

@@ -7,7 +7,7 @@ from upload.views import proListView, proDetailView
 # from upload import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('profile', proListView.as_view(), name='pro-list'),
     path('profile/<int:pk>', proDetailView.as_view(), name='pro-detail'),
     # path('', views.index,name = 'index'),

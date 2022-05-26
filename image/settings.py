@@ -88,7 +88,7 @@ DATABASES = {
         'NAME':'upload',
         'CLIENT':{
             "host":"mongodb+srv://Yuvanth:Yuvi0386@cluster0.uyg1u.mongodb.net/?retryWrites=true&w=majority",
-            # ,"name":"upload",
+            # "name":"upload",
             "authMechanism":"SCRAM-SHA-1" 
         }
     }
