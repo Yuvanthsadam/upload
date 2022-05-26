@@ -85,10 +85,11 @@ WSGI_APPLICATION = 'image.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
+        'NAME':'upload',
         'CLIENT':{
-            "host":"mongodb+srv://Yuvanth:Yuvi0386@cluster0.uyg1u.mongodb.net/?retryWrites=true&w=majority"
-            ,"name":"upload",
-            "authmechanism":"SCRAM-SHA-1" 
+            "host":"mongodb+srv://Yuvanth:Yuvi0386@cluster0.uyg1u.mongodb.net/?retryWrites=true&w=majority",
+            # ,"name":"upload",
+            "authMechanism":"SCRAM-SHA-1" 
         }
     }
 }
