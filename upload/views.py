@@ -36,7 +36,7 @@ class proListView(APIView):
                 "result": serializer.errors
             }
             return Response(resp3)
-        
+
 
 class proDetailView(APIView):
 
